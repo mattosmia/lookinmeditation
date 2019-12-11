@@ -189,6 +189,9 @@ ul {
             padding: 0 1rem;
             position: relative;
             border-bottom: 1px solid $white;
+            @media screen and (min-width: $tablet-medium) {
+                border-bottom: 0;
+            }
 
             a {
                 display: block;
@@ -203,9 +206,6 @@ ul {
                 &:focus:not([tabindex='-1']) {
                     outline-offset: -5px;
                     outline: 2px dashed $white;
-                }
-                @media screen and (min-width: $tablet-medium) {
-                    border-bottom: 0;
                 }
             }
             .nav__subnav {
