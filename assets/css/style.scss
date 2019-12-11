@@ -137,7 +137,7 @@ ul {
     }
     &--narrow {
         max-width: 980px;
-}
+    }
 }
 
 /* header */
@@ -278,8 +278,13 @@ ul {
                 font-weight: $fw-medium;
                 text-decoration: none;
                 text-transform: uppercase;
+                text-align: center;
                 &:hover {
                     text-decoration: underline;
+                }
+                img {
+                    display: block;
+                    margin: 0 auto 1.5rem;
                 }
             }
         }
