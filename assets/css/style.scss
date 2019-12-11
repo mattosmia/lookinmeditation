@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-// colour scheme
+/* colour scheme */
 $purple: #AB78B3;
 $purple--50: rgba(171, 120, 179, 0.5);
 $black: #1d1d1d;
@@ -10,12 +10,12 @@ $blue--light50: rgba(187, 222, 239, 0.5);
 $blue--dark: #0066B3;
 $grey: #6d7278;
 
-// font weights
+/* font weights */
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
-// breakpoints
+/* breakpoints */
 $tablet-small: 600px;
 $tablet-medium: 768px;
 $tablet-large: 1024px;
@@ -462,7 +462,6 @@ ul {
 footer {
     color: $grey;
     font-weight: $fw-medium;
-    text-transform: uppercase;
     nav {
         text-align: center;
         ul {
@@ -481,9 +480,23 @@ footer {
             }
             &.footer__nav--links {
                 display: flex;
+                flex-wrap: wrap;
+                
+                @media screen and (min-width: $tablet-medium) {
+                    flex-wrap: nowrap;
+                    text-transform: uppercase;
+                }
                 li {
-                    flex: 1;
+                    width: 100%;
                     list-style: none;
+                    padding: 0.5rem;
+                    white-space: nowrap;
+                    &:first-child {
+                        order: 1;
+                    }
+                    @media screen and (min-width: $tablet-medium) {
+                        order: 1;
+                    }
                     a {
                         color: $grey;
                         text-decoration: none;
