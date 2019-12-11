@@ -32,3 +32,350 @@ html {
     color: $black;
     background: $white;
 }
+
+
+a:not(.btn) {
+    color: $purple;
+    text-decoration: underline;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &[href='#content'] {
+        position: absolute;
+        left: 0;
+        top: -8rem;
+        display: inline-block;
+        margin: 0 auto;
+        padding: 1rem;
+        background: $purple;
+        z-index: 10;
+
+        &:hover {
+            text-decoration: underline;
+        }
+        &:focus {
+            top: 0;
+        }
+    }
+}
+
+h2 {
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    color: $grey;
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    margin-bottom: 2.5rem;
+    &:after {
+        content: '';
+        width: 40px;
+        height: 5px;
+        display: block;
+        margin: 0.75rem auto 0;
+    }
+}
+
+h3 {
+    color: $grey;
+    font-size: 1.3rem;
+    line-height: 2rem;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+}
+
+/* visually hidden */
+.vh {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+:focus {
+    outline: none;
+
+    &:not([tabindex='-1']) {
+        outline-offset: 2px;
+        outline: 2px dashed $purple;
+    }
+}
+
+/* helper classes */
+.wrapper {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    &--padded {
+        padding: 2.5rem 1rem 3rem;
+    }
+}
+
+/* header */
+.header {
+    text-align: center;
+    &__logo {
+        display: inline-block;
+        padding: 1rem;
+        margin: 1rem;
+        &__img {
+            width: 100%;
+            max-width: 250px;
+        }
+    }
+}
+
+.nav {
+    width: 100%;
+    z-index: 10;
+    background: $purple;
+    align-items: center;
+    justify-content: center;
+    
+    ul {
+        display: flex;
+
+        li {
+            text-align: center;
+            flex: 1;
+            
+            a {
+                display: block;
+                padding: 1rem;
+                color: $white;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-weight: $fw-medium;
+                &:hover {
+                    text-decoration: underline;
+                }
+                &:focus:not([tabindex='-1']) {
+                    outline-offset: -5px;
+                    outline: 2px dashed $white;
+                }
+            }
+        }
+        &.nav {
+            &__level2 {
+                display: none;
+                &.active {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+
+.input {
+    color: $grey;
+    text-transform: uppercase;
+    font-weight: $fw-medium;
+    font-size: 0.75rem;
+    padding: 0.75rem;
+    border: 1px solid $white;
+}
+
+.btn {
+    border-radius: 2rem;
+    padding: 0.5rem 2rem;
+    background-color: $grey;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: $white;
+    border: 0px;
+    cursor: pointer;
+}
+
+.theme {
+    &--blue {
+        background: $blue--light50;
+        h2:after {
+            background: $blue--dark;
+        }
+        :focus:not([tabindex='-1']) {
+            outline: 2px dashed $blue--dark;
+        }
+        a:not(.btn) {
+            color: $blue--dark;
+        }
+        .btn {
+            background-color: $blue--dark;
+        }
+    }
+    &--purple {
+        h2:after {
+            background: $purple;
+        }
+        a:not(.btn) {
+            color: $grey;
+        }
+        .btn {
+            background-color: $purple;
+        }
+    }
+}
+
+/* modules */
+.m01-carousel {
+    position: relative;
+    li {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: none;
+        &.active {
+            display: flex;
+        }
+    }
+}
+
+.m02-icon-column {
+    &__columns {
+        display: flex;
+        &__column {
+            list-style: none;
+            padding: 3rem;
+            flex: 1;
+            justify-content: center;
+            display: flex;
+            a {
+                display: block;
+                font-weight: $fw-medium;
+                text-decoration: none;
+                text-transform: uppercase;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+.m03-newsletter {
+    form {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 750px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        .input {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+
+        @media screen and (min-width: 600px) {
+            flex-wrap: nowrap;
+            .input {
+                margin-right: 1rem;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.m04-content-copy {
+    &__banner {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+        background: $purple--50;
+        margin-bottom: 2rem;
+    }
+}
+
+.m05-app-download {
+    &__wrapper {
+        display: flex;
+    }
+    &__image {
+        width: 40%;
+    }
+    &__content {
+        width: 60%;
+        h3 {
+            color: $grey;
+        }
+    }
+}
+
+.icon {
+    background-repeat: no-repeat;
+    background-size: contain;
+    &--discover-meditation {
+        background-image: url('../img/03-icon-discover-meditation.svg');
+    }
+    &--types-meditation {
+        background-image: url('../img/04-icon-types-of-meditation.svg');
+    }
+    &--sm {
+        &-facebook {
+            background-image: url('../img/05-icon-social-media-facebook.svg');
+        }
+        &-instagram {
+            background-image: url('../img/06-icon-social-media-instagram.svg');
+        }
+        &-youtube {
+            background-image: url('../img/07-icon-social-media-youtube.svg');
+        }
+    }
+}
+
+footer {
+    color: $grey;
+    font-weight: $fw-medium;
+    text-transform: uppercase;
+    nav {
+        text-align: center;
+        ul {
+            &.footer__nav--social-media {
+                margin: 0rem 0 2rem;
+                display: inline-block;
+                li {
+                    display: inline-block;
+                    padding: 0 0.5rem;
+                    a {
+                        display: block;
+                        width: 40px;
+                        height: 40px;
+                    }
+                }
+            }
+            &.footer__nav--links {
+                display: flex;
+                li {
+                    flex: 1;
+                    list-style: none;
+                    a {
+                        color: $grey;
+                        text-decoration: none;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
