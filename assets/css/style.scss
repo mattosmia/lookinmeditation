@@ -135,6 +135,9 @@ ul {
     &--padded {
         padding: 2.5rem 1rem 3rem;
     }
+    &--narrow {
+        max-width: 980px;
+}
 }
 
 /* header */
