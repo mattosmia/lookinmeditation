@@ -15,6 +15,12 @@ $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
+// breakpoints
+$tablet-small: 600px;
+$tablet-medium: 768px;
+$tablet-large: 1024px;
+$desktop-medium: 1200px;
+$desktop-large: 1920px;
 *,
 *::before,
 *::after {
