@@ -21,6 +21,7 @@ $tablet-medium: 768px;
 $tablet-large: 1024px;
 $desktop-medium: 1200px;
 $desktop-large: 1920px;
+
 *,
 *::before,
 *::after {
@@ -88,6 +89,7 @@ h3 {
     color: $grey;
     font-size: 1.3rem;
     line-height: 2rem;
+    margin-bottom: 1rem;
 }
 
 img {
@@ -190,7 +192,6 @@ ul {
     }
 }
 
-
 .input {
     color: $grey;
     text-transform: uppercase;
@@ -259,10 +260,14 @@ ul {
 .m02-icon-column {
     &__columns {
         display: flex;
+        flex-wrap: wrap;
+        @media screen and (min-width: $tablet-small) {
+            flex-wrap: nowrap;
+        }
         &__column {
             list-style: none;
             padding: 3rem;
-            flex: 1;
+            width: 100%;
             justify-content: center;
             display: flex;
             a {
@@ -291,7 +296,7 @@ ul {
             margin-bottom: 1rem;
         }
 
-        @media screen and (min-width: 600px) {
+        @media screen and (min-width: $tablet-small) {
             flex-wrap: nowrap;
             .input {
                 margin-right: 1rem;
@@ -320,7 +325,7 @@ ul {
         @media screen and (min-width: $tablet-medium) {
             flex-direction: row;
             flex-wrap: nowrap;
-    }
+        }
     }
     &__image {
         display: flex;
