@@ -314,14 +314,53 @@ ul {
 .m05-app-download {
     &__wrapper {
         display: flex;
+        flex-wrap: wrap;
+        flex-direction: column-reverse;
+        
+        @media screen and (min-width: $tablet-medium) {
+            flex-direction: row;
+            flex-wrap: nowrap;
+    }
     }
     &__image {
-        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
     }
     &__content {
-        width: 60%;
-        h3 {
-            color: $grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 2rem;
+        @media screen and (min-width: $tablet-medium) {
+            margin-bottom: 0;
+        }
+        span {
+            display: inline-block;
+            background-color: $blue--dark;
+            border-radius: 2rem;
+            padding: 0.5rem 2rem;
+            text-transform: uppercase;
+            color: $white;
+            border: 0px;
+            margin: 0.75rem 0 2rem;
+        }
+    }
+    &__download {
+        &__btn {
+            img {
+                width: 140px;
+            }
+        }
+        &__btn + &__btn {
+            margin-bottom: 1rem;
+            @media screen and (min-width: $tablet-small) {
+                margin-left: 1rem;
+                margin-bottom: 0;
+            }
         }
     }
 }
