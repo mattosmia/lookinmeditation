@@ -1,4 +1,4 @@
-# Lookin Mindtation - Meditation App
+# Lookin Meditation - Your favourite meditation app
 
 > Website created for Web design module 
 
