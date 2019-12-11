@@ -160,13 +160,33 @@ ul {
     background: $purple;
     align-items: center;
     justify-content: center;
-    
-    ul {
-        display: flex;
+    &__mobile {
+        display: block;
+        height: 3rem;
+        width: 100%;
+        background-color: #AB78B3;
+        background-image: url(../img/icon_menu-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 50%;
+        transition: 0.2s ease-in-out all;
+        border: 0;
+        @media screen and (min-width: $tablet-medium) {
+            display: none;
+        }
+    }
+    .nav__menu {
+        display: none;
+        border-top: 0.25rem solid $white;
+        @media screen and (min-width: $tablet-medium) {
+            border-top: 0;
+            display: flex;
+        }
 
         li {
             text-align: center;
-            flex: 1;
+            width: 100%;
+            padding: 0 1.5rem;
             
             a {
                 display: block;
@@ -174,6 +194,7 @@ ul {
                 color: $white;
                 text-decoration: none;
                 text-transform: uppercase;
+                border-bottom: 1px solid $white;
                 font-weight: $fw-medium;
                 &:hover {
                     text-decoration: underline;
@@ -182,14 +203,26 @@ ul {
                     outline-offset: -5px;
                     outline: 2px dashed $white;
                 }
+                @media screen and (min-width: $tablet-medium) {
+                    border-bottom: 0;
+                }
             }
         }
-        &.nav {
-            &__level2 {
-                display: none;
-                &.active {
-                    display: block;
-                }
+        .nav__level2 {
+            display: none;
+            &.expanded {
+                display: block;
+            }
+        }
+    }
+    &.mobile-expanded {
+        .nav__mobile {
+            background-image: url(../img/icon_close-menu.svg);
+        }
+        .nav__menu {
+            display: block;
+            @media screen and (min-width: $tablet-medium) {
+                display: flex;
             }
         }
     }
