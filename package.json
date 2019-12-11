@@ -1,0 +1,24 @@
+{
+  "name": "lookinmeditation",
+  "version": "1.0.0",
+  "description": "> Website created for Web design module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattosmia/lookinmeditation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattosmia/lookinmeditation/issues"
+  },
+  "homepage": "https://github.com/mattosmia/lookinmeditation#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.0.2",
+    "node-sass": "^4.13.0"
+  }
+}
