@@ -186,15 +186,16 @@ ul {
         li {
             text-align: center;
             width: 100%;
-            padding: 0 1.5rem;
-            
+            padding: 0 1rem;
+            position: relative;
+            border-bottom: 1px solid $white;
+
             a {
                 display: block;
                 padding: 1rem;
                 color: $white;
                 text-decoration: none;
                 text-transform: uppercase;
-                border-bottom: 1px solid $white;
                 font-weight: $fw-medium;
                 &:hover {
                     text-decoration: underline;
@@ -207,11 +208,36 @@ ul {
                     border-bottom: 0;
                 }
             }
-        }
-        .nav__level2 {
-            display: none;
-            &.expanded {
-                display: block;
+            .nav__subnav {
+                display: none;
+                padding-bottom: 0.5rem;
+                
+                @media screen and (min-width: $tablet-medium) {
+                    background: $purple;
+                    border-top: 3px solid $white;
+                    padding-bottom: 0;
+                    position: absolute;
+                    z-index: 10;
+                    width: 100%;
+                }
+
+                li {
+                    border: 0;
+                    @media screen and (min-width: $tablet-medium) {
+                        padding: 0.25rem 0.25rem;
+                    }
+                    a {
+                        text-transform: none;
+                        font-size: 1rem;
+                        padding: 0.75rem;
+                    }
+                }
+            }
+            &.expanded,
+            &:hover {
+                .nav__subnav {
+                    display: block;
+                }
             }
         }
     }
