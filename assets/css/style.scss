@@ -9,6 +9,7 @@ $blue--light: #BBDEEF;
 $blue--light50: rgba(187, 222, 239, 0.5);
 $blue--dark: #0066B3;
 $grey: #6d7278;
+$grey--light: #efefef;
 
 /* font weights */
 $fw-regular: 400;
@@ -460,7 +461,7 @@ ul {
 }
 
 footer {
-    color: $grey;
+    color: $grey--light;
     font-weight: $fw-medium;
     nav {
         text-align: center;
@@ -498,8 +499,9 @@ footer {
                         order: 1;
                     }
                     a {
-                        color: $grey;
+                        color: $grey--light;
                         text-decoration: none;
+                        text-transform: none;
                         &:hover {
                             text-decoration: underline;
                         }
