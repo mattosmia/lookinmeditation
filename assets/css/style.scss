@@ -160,14 +160,39 @@ ul {
     background: $purple;
     align-items: center;
     justify-content: center;
-    
-    ul {
-        display: flex;
+    &__mobile {
+        display: block;
+        height: 3rem;
+        width: 100%;
+        background-color: #AB78B3;
+        background-image: url(../img/icon_menu-mobile.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 50%;
+        transition: 0.2s ease-in-out all;
+        border: 0;
+        @media screen and (min-width: $tablet-medium) {
+            display: none;
+        }
+    }
+    .nav__menu {
+        display: none;
+        border-top: 0.25rem solid $white;
+        @media screen and (min-width: $tablet-medium) {
+            border-top: 0;
+            display: flex;
+        }
 
         li {
             text-align: center;
-            flex: 1;
-            
+            width: 100%;
+            padding: 0 1rem;
+            position: relative;
+            border-bottom: 1px solid $white;
+            @media screen and (min-width: $tablet-medium) {
+                border-bottom: 0;
+            }
+
             a {
                 display: block;
                 padding: 1rem;
@@ -183,13 +208,47 @@ ul {
                     outline: 2px dashed $white;
                 }
             }
-        }
-        &.nav {
-            &__level2 {
+            .nav__subnav {
                 display: none;
-                &.active {
+                padding-bottom: 0.5rem;
+                
+                @media screen and (min-width: $tablet-medium) {
+                    background: $purple;
+                    border-top: 3px solid $white;
+                    padding-bottom: 0;
+                    position: absolute;
+                    z-index: 10;
+                    width: 100%;
+                }
+
+                li {
+                    border: 0;
+                    @media screen and (min-width: $tablet-medium) {
+                        padding: 0.25rem 0.25rem;
+                    }
+                    a {
+                        text-transform: none;
+                        font-size: 1rem;
+                        padding: 0.75rem;
+                    }
+                }
+            }
+            &.expanded,
+            &:hover {
+                .nav__subnav {
                     display: block;
                 }
+            }
+        }
+    }
+    &.mobile-expanded {
+        .nav__mobile {
+            background-image: url(../img/icon_close-menu.svg);
+        }
+        .nav__menu {
+            display: block;
+            @media screen and (min-width: $tablet-medium) {
+                display: flex;
             }
         }
     }
