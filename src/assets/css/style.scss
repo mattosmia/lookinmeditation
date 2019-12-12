@@ -431,31 +431,44 @@ ul {
 }
 
 .m02-icon-column {
+    text-align: center;
+    &__banner {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem;
+        background: $purple--50;
+        margin-bottom: 2rem;
+    }
     &__columns {
         display: flex;
         flex-wrap: wrap;
-        @media screen and (min-width: $tablet-small) {
-            flex-wrap: nowrap;
-        }
         &__column {
             list-style: none;
             padding: 3rem;
             width: 100%;
             justify-content: center;
             display: flex;
-            a {
+            @media screen and (min-width: $tablet-medium) {
+                max-width: 50%;
+            }
+            &__item {
                 display: block;
                 font-weight: $fw-medium;
                 text-decoration: none;
                 text-transform: uppercase;
                 text-align: center;
-                &:hover {
-                    text-decoration: underline;
+                p {
+                    font-weight: $fw-regular;
+                    text-transform: none;
                 }
                 img {
                     display: block;
                     margin: 0 auto 1.5rem;
+                    height: 120px;
                 }
+            }
+            a:hover {
+                text-decoration: none;
             }
         }
     }
