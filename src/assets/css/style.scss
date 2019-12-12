@@ -138,6 +138,9 @@ ul {
     &--padded {
         padding: 2.5rem 1rem 3rem;
     }
+    &--padded-small {
+        padding: 1rem;
+    }
     &--narrow {
         max-width: 980px;
     }
@@ -278,6 +281,15 @@ ul {
     color: $white;
     border: 0px;
     cursor: pointer;
+    &--primary {
+        background: $blue--dark;
+    }
+    &--secondary {
+        background: $purple;
+    }
+    &--border {
+        border: 2px solid $white;
+    }
 }
 
 .theme {
@@ -603,6 +615,40 @@ ul {
         @media screen and (min-width: $tablet-medium) {
             max-width: 350px;
         }
+    }
+}
+
+.m07-cookie-policy {
+    display: none;
+    position: sticky;
+    bottom: 0;
+    background: $blue--dark;
+    color: $white;
+    a {
+        color: $white;
+        font-weight: $fw-medium;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    
+    &__content {
+        @media screen and (min-width: $tablet-medium) {
+            display: flex;
+            align-items: center;
+        }
+        p {
+            padding-bottom: 1rem;
+            font-size: 0.875rem;
+            @media screen and (min-width: $tablet-medium) {
+                padding-right: 1rem;
+                padding-bottom: 0;
+            }
+        }
+    }
+    &.show {
+        display: block;
     }
 }
 
