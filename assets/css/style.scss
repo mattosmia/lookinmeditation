@@ -439,6 +439,55 @@ ul {
     }
 }
 
+.m06-contact-us-form {
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        
+        @media screen and (min-width: $tablet-medium) {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+    }
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    &__content {
+        &__wrapper {
+            width: 100%;
+        }
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2rem;
+        @media screen and (min-width: $tablet-medium) {
+            margin-bottom: 0;
+        }
+    }
+    form {
+        padding: 1rem 0;
+    }
+    &__input,
+    &__textarea {
+        display: block;
+        padding: 0.75rem 0;
+        margin-bottom: 1.75rem;
+        color: $grey;
+        background-color: $white;
+        border: 0;
+        border-bottom: 1px solid $purple;
+        width: 100%;
+        @media screen and (min-width: $tablet-medium) {
+            max-width: 350px;
+        }
+    }
+}
+
 .icon {
     background-repeat: no-repeat;
     background-size: contain;
