@@ -235,10 +235,18 @@ ul {
                     }
                 }
             }
-            &.expanded,
-            &:hover {
+            &.expanded {
                 .nav__subnav {
-                    display: block;
+                    @media screen and (max-width: $tablet-medium - 1) {
+                        display: block;
+                    }
+                }
+            }
+            &:hover {
+                @media screen and (min-width: $tablet-medium) {
+                    .nav__subnav {
+                        display: block;
+                    }
                 }
             }
         }
