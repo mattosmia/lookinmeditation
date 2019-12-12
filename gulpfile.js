@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var clean = require('gulp-clean');
 var sass = require('gulp-sass');
 var extender = require('gulp-html-extend');
+var rename = require("gulp-rename");
  
 sass.compiler = require('node-sass');
  
@@ -24,7 +25,13 @@ gulp.task('sass', function () {
 gulp.task('html', function () {
   return gulp.src('./src/*.html')
       .pipe(extender({annotations:false,verbose:false}))
-      .pipe(gulp.dest('./build'));
+      .pipe(rename( // if any files have -- in their names, create dir
+        function (path) {
+          path.basename = path.basename.replace(/--/g,'/');
+          return path;
+        })
+      )
+      .pipe(gulp.dest('./build/'));
 });
 
 // copy JS to build folder (no changes)
