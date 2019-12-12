@@ -349,7 +349,7 @@ ul {
             background-position: right center;
         }
         &:nth-child(1) {
-            background-image: url('../img/02-guy-meditating.svg');
+            background-image: url('../img/guy-meditating.svg');
         }
         &:nth-child(2) {
             background-image: url('../img/girl-meditating-2.svg');
@@ -597,20 +597,20 @@ ul {
     background-repeat: no-repeat;
     background-size: contain;
     &--discover-meditation {
-        background-image: url('../img/03-icon-discover-meditation.svg');
+        background-image: url('../img/icon-discover-meditation.svg');
     }
     &--types-meditation {
-        background-image: url('../img/04-icon-types-of-meditation.svg');
+        background-image: url('../img/icon-types-of-meditation.svg');
     }
     &--sm {
         &-facebook {
-            background-image: url('../img/05-icon-social-media-facebook.svg');
+            background-image: url('../img/icon-social-media-facebook.svg');
         }
         &-instagram {
-            background-image: url('../img/06-icon-social-media-instagram.svg');
+            background-image: url('../img/icon-social-media-instagram.svg');
         }
         &-youtube {
-            background-image: url('../img/07-icon-social-media-youtube.svg');
+            background-image: url('../img/icon-social-media-youtube.svg');
         }
     }
 }
