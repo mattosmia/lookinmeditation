@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
-// colour scheme
+/* colour scheme */
 $purple: #AB78B3;
 $purple--50: rgba(171, 120, 179, 0.5);
-$black: #1d1d1d;
+$black: #565656;
 $white: #fefefe;
 $blue--light: #BBDEEF;
 $blue--light50: rgba(187, 222, 239, 0.5);
 $blue--dark: #0066B3;
 $grey: #6d7278;
+$grey--light: #A6A7A7;
 
-// font weights
+/* font weights */
 $fw-regular: 400;
 $fw-medium: 500;
 $fw-bold: 700;
 
-// breakpoints
+/* breakpoints */
 $tablet-small: 600px;
 $tablet-medium: 768px;
 $tablet-large: 1024px;
@@ -42,7 +43,7 @@ html {
 
 
 a:not(.btn) {
-    color: $purple;
+    color: $blue--dark;
     text-decoration: underline;
 
     &:hover {
@@ -57,6 +58,7 @@ a:not(.btn) {
         margin: 0 auto;
         padding: 1rem;
         background: $purple;
+        color: $black;
         z-index: 10;
 
         &:hover {
@@ -254,15 +256,6 @@ ul {
     }
 }
 
-.input {
-    color: $grey;
-    text-transform: uppercase;
-    font-weight: $fw-medium;
-    font-size: 0.75rem;
-    padding: 0.75rem;
-    border: 1px solid $white;
-}
-
 .btn {
     border-radius: 2rem;
     padding: 0.5rem 2rem;
@@ -275,6 +268,17 @@ ul {
 }
 
 .theme {
+    &--default {
+        h2:after {
+            background: $purple;
+        }
+        a:not(.btn) {
+            color: $grey;
+        }
+        .btn {
+            background-color: $blue--dark;
+        }
+    }
     &--blue {
         background: $blue--light50;
         h2:after {
@@ -291,22 +295,43 @@ ul {
         }
     }
     &--purple {
-        h2:after {
-            background: $purple;
-        }
-        a:not(.btn) {
-            color: $grey;
-        }
-        .btn {
-            background-color: $purple;
-        }
+        @extend .theme--default;
+        background: $purple--50;
+    }
+}
+
+.colour {
+    &--purple {
+        color: $purple;
+    }
+    &--blue {
+        color: $blue--dark;
     }
 }
 
 /* modules */
 .m01-carousel {
     position: relative;
-    li {
+    padding-bottom: 100%;
+    
+    @media screen and (min-width: $tablet-medium) {
+        padding-bottom: 40%;
+    }
+    
+    .carousel__nav {
+        position: absolute;
+        z-index: 5;
+        li {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            background-color: $blue--dark;
+            border-radius: 50%;
+            margin: 0.25rem;
+            cursor: pointer;
+        }
+    }
+    &__frame {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -315,6 +340,67 @@ ul {
         display: none;
         &.active {
             display: flex;
+        }
+
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: right bottom -30%;
+        @media screen and (min-width: $tablet-medium) {
+            background-position: right center;
+        }
+        &:nth-child(1) {
+            background-image: url('../img/02-guy-meditating.svg');
+        }
+        &:nth-child(2) {
+            background-image: url('../img/girl-meditating-2.svg');
+        }
+        &:nth-child(3) {
+            background-image: url('../img/device_outline_2.png');
+        }
+
+        &__content {
+            @extend .wrapper;
+            @extend .wrapper--padded;
+            
+            @media screen and (min-width: $tablet-medium) {
+                width: 50%;
+                margin-left: 0;
+                padding-left: 2.5rem;
+                padding-right: 2rem;
+            }
+            h3 {
+                font-weight: $fw-medium;
+                font-size: 1.8rem;
+                line-height: 2.2rem;
+                @media screen and (min-width: $tablet-medium) {
+                    font-size: 2.4rem;
+                    line-height: 2.8rem;
+                }
+                color: $grey;
+                text-transform: uppercase;
+                span {
+                    color: $blue--dark;
+                    display: block;
+                }
+            }
+
+            p {
+                font-size: 1.25rem;
+                font-weight: $fw-medium;
+                color: $black;
+            }
+
+            .btn {
+                display: inline-block;
+                margin: 2rem 0;
+            }
+        }
+        &.theme--purple {
+            h3 {
+                span {
+                    color: $purple;
+                }
+            }
         }
     }
 }
@@ -358,17 +444,23 @@ ul {
         max-width: 750px;
         margin: 0 auto;
         flex-wrap: wrap;
-        .input {
-            width: 100%;
-            margin-bottom: 1rem;
-        }
-
         @media screen and (min-width: $tablet-small) {
             flex-wrap: nowrap;
-            .input {
-                margin-right: 1rem;
-                margin-bottom: 0;
-            }
+        }
+    }
+
+    &__input {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: $grey;
+        text-transform: uppercase;
+        font-weight: $fw-medium;
+        font-size: 0.75rem;
+        padding: 0.75rem;
+        border: 1px solid $white;
+        @media screen and (min-width: $tablet-small) {
+            margin-right: 1rem;
+            margin-bottom: 0;
         }
     }
 }
@@ -380,6 +472,21 @@ ul {
         padding: 0.5rem;
         background: $purple--50;
         margin-bottom: 2rem;
+    }
+    &__content {
+        @media screen and (min-width: $tablet-medium) {
+            padding: 0 2rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+        }
+        a {
+            color: $blue--dark;
+            text-decoration: none;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
 }
 
@@ -437,6 +544,55 @@ ul {
     }
 }
 
+.m06-contact-us-form {
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        
+        @media screen and (min-width: $tablet-medium) {
+            flex-direction: row;
+            flex-wrap: nowrap;
+        }
+    }
+    &__image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    
+    &__content {
+        &__wrapper {
+            width: 100%;
+        }
+        display: flex;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 2rem;
+        @media screen and (min-width: $tablet-medium) {
+            margin-bottom: 0;
+        }
+    }
+    form {
+        padding: 1rem 0;
+    }
+    &__input,
+    &__textarea {
+        display: block;
+        padding: 0.75rem 0;
+        margin-bottom: 1.75rem;
+        color: $grey;
+        background-color: $white;
+        border: 0;
+        border-bottom: 1px solid $purple;
+        width: 100%;
+        @media screen and (min-width: $tablet-medium) {
+            max-width: 350px;
+        }
+    }
+}
+
 .icon {
     background-repeat: no-repeat;
     background-size: contain;
@@ -460,9 +616,8 @@ ul {
 }
 
 footer {
-    color: $grey;
+    color: $grey--light;
     font-weight: $fw-medium;
-    text-transform: uppercase;
     nav {
         text-align: center;
         ul {
@@ -481,12 +636,27 @@ footer {
             }
             &.footer__nav--links {
                 display: flex;
+                flex-wrap: wrap;
+                
+                @media screen and (min-width: $tablet-medium) {
+                    flex-wrap: nowrap;
+                    text-transform: uppercase;
+                }
                 li {
-                    flex: 1;
+                    width: 100%;
                     list-style: none;
+                    padding: 0.5rem;
+                    white-space: nowrap;
+                    &:first-child {
+                        order: 1;
+                    }
+                    @media screen and (min-width: $tablet-medium) {
+                        order: 1;
+                    }
                     a {
-                        color: $grey;
+                        color: $grey--light;
                         text-decoration: none;
+                        text-transform: none;
                         &:hover {
                             text-decoration: underline;
                         }
