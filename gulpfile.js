@@ -1,12 +1,13 @@
 'use strict';
  
 var gulp = require('gulp');
-var sass = require('gulp-sass');
-var bake = require("gulp-bake");
 var clean = require('gulp-clean');
+var sass = require('gulp-sass');
+var extender = require('gulp-html-extend');
  
 sass.compiler = require('node-sass');
  
+// cleans the build folder to start afresh!
 gulp.task('clean', function () {
     return gulp.src('./build', {read: false, allowEmpty: true})
         .pipe(clean());
@@ -14,19 +15,16 @@ gulp.task('clean', function () {
 
 // compiling SASS into CSS and copying to build folder
 gulp.task('sass', function () {
-  return gulp.src('./src/assets/**/*.scss')
+  return gulp.src('./src/assets/css/*')
     .pipe(sass().on('error', sass.logError))
-    .pipe(gulp.dest('./build/assets/'));
+    .pipe(gulp.dest('./build/assets/css/'));
 });
 
 // baking HTML templates and copying to build folder
 gulp.task('html', function () {
   return gulp.src('./src/*.html')
-    .pipe(bake({
-      "/* header */": "./src/partials/header.txt",
-      "/* footer */": "./src/partials/footer.txt"
-    }))
-    .pipe(gulp.dest('./build/'));
+      .pipe(extender({annotations:false,verbose:false}))
+      .pipe(gulp.dest('./build'));
 });
 
 // copy JS to build folder (no changes)
@@ -43,9 +41,9 @@ gulp.task('img', function () {
  
  
 gulp.task('watch', function() {
-    gulp.watch('./src/assets/**/*.scss', gulp.series('sass'));
+    gulp.watch('./src/assets/css/*', gulp.series('sass'));
     gulp.watch('./src/*.html', gulp.series('html'));
-    gulp.watch('./src/assets/**/*.js', gulp.series('js'));
+    gulp.watch('./src/assets/js/*', gulp.series('js'));
     gulp.watch('./src/assets/img/*', gulp.series('img'));
 });
 
