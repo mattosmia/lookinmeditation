@@ -218,6 +218,18 @@ ul {
                     outline: 2px dashed $white;
                 }
             }
+            &.nav__has-subnav {
+                > a {
+                    background-image: url('../img/arrow-down-menu-mobile.svg');
+                    background-repeat: no-repeat;
+                    background-position: right 10px center;
+                    background-size: 20px auto;
+                    
+                    @media screen and (min-width: $tablet-medium) {
+                        background-image: none;
+                    }
+                }
+            }
             .nav__subnav {
                 display: none;
                 padding-bottom: 0.5rem;
@@ -244,8 +256,11 @@ ul {
                 }
             }
             &.expanded {
+                @media screen and (max-width: $tablet-medium - 1) {
+                    > a {
+                        background-image: url('../img/arrow-up-menu-mobile.svg');
+                    }
                 .nav__subnav {
-                    @media screen and (max-width: $tablet-medium - 1) {
                         display: block;
                     }
                 }
