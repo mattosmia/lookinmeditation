@@ -40,6 +40,7 @@ html {
     font-size: 16px;
     color: $black;
     background: $white;
+    scroll-behavior: smooth;
 }
 
 
@@ -260,7 +261,7 @@ ul {
                     > a {
                         background-image: url('../img/arrow-up-menu-mobile.svg');
                     }
-                .nav__subnav {
+                    .nav__subnav {
                         display: block;
                     }
                 }
@@ -728,17 +729,26 @@ footer {
                 @media screen and (min-width: $tablet-medium) {
                     flex-wrap: nowrap;
                     text-transform: uppercase;
+                    align-items: center;
                 }
                 li {
                     width: 100%;
                     list-style: none;
                     padding: 0.5rem;
                     white-space: nowrap;
+                    margin: 0 auto;
                     &:first-child {
                         order: 1;
                     }
+                    &:last-child {
+                        max-width: 50px;
+                    }
                     @media screen and (min-width: $tablet-medium) {
                         order: 1;
+                        
+                        &:last-child {
+                            width: 20%;
+                        }
                     }
                     a {
                         color: $grey--light;

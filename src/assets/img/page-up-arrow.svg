@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="58px" height="58px" viewBox="0 0 58 58" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61 (89581) - https://sketch.com -->
+    <title>page-up-arrow</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home---Desktop" transform="translate(-939.000000, -1641.000000)">
+            <g id="page-up-arrow" transform="translate(939.000000, 1641.000000)">
+                <circle id="Oval" fill="#0066B3" cx="29" cy="29" r="29"></circle>
+                <path d="M28.7279221,15.7071068 L16.3535534,28.0814755 M29.0814755,16.0606602 L41.4558441,28.4350288 M28.6546988,19.4046988 L28.6546988,43.4046988" id="Combined-Shape" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
