@@ -1,0 +1,19 @@
+    </main>
+    <footer>
+        <nav class="wrapper wrapper--padded">
+            <ul class="footer__nav--social-media">
+                <li><a href="#" class="icon icon--sm-facebook"><span class="vh">Facebook</span></a></li>
+                <li><a href="#" class="icon icon--sm-instagram"><span class="vh">Instagram</span></a></li>
+                <li><a href="#" class="icon icon--sm-youtube"><span class="vh">YouTube</span></a></li>
+            </ul>
+            <ul class="footer__nav--links">
+                <li>&copy; Lookin Meditation App</li>
+                <li><a href="#">Terms &amp; Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+            </ul>
+        </nav>
+    </footer>
+    <script type="application/javascript" src="assets/js/index.js"></script>
+</body>
+</html>
