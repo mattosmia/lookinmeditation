@@ -5,6 +5,7 @@ $purple: #AB78B3;
 $purple--50: rgba(171, 120, 179, 0.5);
 $black: #565656;
 $white: #fefefe;
+$white--20: rgba(254, 254, 254, 0.2);
 $blue--light: #BBDEEF;
 $blue--light50: rgba(187, 222, 239, 0.5);
 $blue--dark: #0066B3;
@@ -202,8 +203,12 @@ ul {
                 text-decoration: none;
                 text-transform: uppercase;
                 font-weight: $fw-medium;
+                transition: 0.2s linear background-color;
                 &:hover {
                     text-decoration: underline;
+                    @media screen and (min-width: $tablet-medium) {
+                        background-color: $white--20;
+                    }
                 }
                 &:focus:not([tabindex='-1']) {
                     outline-offset: -5px;
