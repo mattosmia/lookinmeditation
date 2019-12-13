@@ -5,7 +5,8 @@ var clean = require('gulp-clean');
 var sass = require('gulp-sass');
 var extender = require('gulp-html-extend');
 var rename = require("gulp-rename");
- 
+var connect = require('gulp-connect');
+
 sass.compiler = require('node-sass');
  
 // cleans the build folder to start afresh!
@@ -54,10 +55,19 @@ gulp.task('watch', function() {
     gulp.watch('./src/assets/img/*', gulp.series('img'));
 });
 
+gulp.task('connect', function() {
+  connect.server({
+    root: './build',
+    livereload: true
+  })
+});
+
 gulp.task('build', gulp.series(
   'clean', 'sass', 'js', 'img', 'html'
 ));
 
-gulp.task('default', gulp.series(
-  'build'
+gulp.task('default', gulp.parallel(
+  'build',
+  'connect',
+  'watch'
 ));
