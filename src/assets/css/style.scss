@@ -86,6 +86,7 @@ h2 {
         height: 5px;
         display: block;
         margin: 0.75rem auto 0;
+        background: $purple;
     }
 }
 
@@ -191,6 +192,7 @@ ul {
         }
 
         li {
+            list-style: none;
             text-align: center;
             width: 100%;
             padding: 0 1rem;
@@ -342,11 +344,34 @@ ul {
 }
 
 .colour {
+    &--white {
+        color: $white !important;
+    }
     &--purple {
-        color: $purple;
+        color: $purple !important;
     }
     &--blue {
-        color: $blue--dark;
+        color: $blue--dark !important;
+    }
+}
+
+.bg {
+    &--blue {
+        background-color: $blue--light50 !important;
+    }
+    
+    &--purple {
+        background-color: $purple--50 !important;
+    }
+}
+
+.banner {
+    img {
+        height: 150px;
+        
+        @media screen and (min-width: $tablet-medium) {
+            height: 300px;
+        }
     }
 }
 
@@ -542,7 +567,7 @@ ul {
         p {
             margin-bottom: 1.5rem;
         }
-        a {
+        a:not(.btn) {
             color: $blue--dark;
             text-decoration: none;
             &:hover {
