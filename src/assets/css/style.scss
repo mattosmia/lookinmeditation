@@ -378,15 +378,23 @@ ul {
 /* modules */
 .m01-carousel {
     position: relative;
-    padding-bottom: 100%;
+    padding-bottom: 80%;
     
     @media screen and (min-width: $tablet-medium) {
+        padding-bottom: 50%;
+    }
+    @media screen and (min-width: $tablet-large) {
         padding-bottom: 33%;
     }
     
     .carousel__nav {
         position: absolute;
         z-index: 5;
+        bottom: 2rem;
+        left: 1rem;
+        @media screen and (min-width: $tablet-medium) {
+            left: 2.5rem;
+        }
         li {
             display: inline-block;
             width: 1rem;
@@ -416,11 +424,12 @@ ul {
             opacity: 1;
         }
 
-        background-size: auto 100%;
+        background-size: auto 80%;
         background-repeat: no-repeat;
-        background-position: right bottom -30%;
+        background-position: right -100px bottom -50px;
         @media screen and (min-width: $tablet-medium) {
             background-position: right center;
+            background-size: auto 100%;
         }
         &:nth-child(1) {
             background-image: url('../img/guy-meditating.svg');
@@ -435,6 +444,7 @@ ul {
         &__content {
             @extend .wrapper;
             @extend .wrapper--padded;
+            padding-right: 20%;
             
             @media screen and (min-width: $tablet-medium) {
                 width: 50%;
@@ -446,7 +456,7 @@ ul {
                 font-weight: $fw-medium;
                 font-size: 1.8rem;
                 line-height: 2.2rem;
-                @media screen and (min-width: $tablet-medium) {
+                @media screen and (min-width: $tablet-large) {
                     font-size: 2.4rem;
                     line-height: 2.8rem;
                 }
@@ -459,9 +469,12 @@ ul {
             }
 
             p {
-                font-size: 1.25rem;
+                font-size: 1rem;
                 font-weight: $fw-medium;
                 color: $black;
+                @media screen and (min-width: $tablet-large) {
+                    font-size: 1.25rem;
+                }
             }
 
             .btn {
