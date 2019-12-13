@@ -696,6 +696,7 @@ ul {
 .m07-cookie-policy {
     display: none;
     position: sticky;
+    z-index: 20;
     bottom: 0;
     background: $blue--dark;
     color: $white;
