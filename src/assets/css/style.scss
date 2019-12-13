@@ -356,7 +356,7 @@ ul {
     padding-bottom: 100%;
     
     @media screen and (min-width: $tablet-medium) {
-        padding-bottom: 40%;
+        padding-bottom: 33%;
     }
     
     .carousel__nav {
@@ -368,8 +368,12 @@ ul {
             height: 1rem;
             background-color: $blue--dark;
             border-radius: 50%;
+            border: 2px solid $white;
             margin: 0.25rem;
             cursor: pointer;
+            &.active {
+                border: 2px solid transparent;
+            }
         }
     }
     &__frame {
@@ -378,9 +382,13 @@ ul {
         bottom: 0;
         left: 0;
         right: 0;
-        display: none;
+        display: flex;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.2s linear all;
         &.active {
-            display: flex;
+            visibility: visible;
+            opacity: 1;
         }
 
         background-size: auto 100%;

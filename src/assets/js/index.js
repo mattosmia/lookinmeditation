@@ -53,3 +53,42 @@ if (cookie_policy) {
         cookie_policy.classList.add('show');
     }
 }
+
+/* initialised and handles carousels */
+const carousels = document.querySelectorAll('.js-carousel');
+
+if (carousels.length) {
+    carousels.forEach(carousel => {
+        const carouselItems = carousel.querySelectorAll('li');
+        if (carouselItems.length > 1) {
+            const carouselNav = document.createElement('ul');
+            carouselNav.classList.add('carousel__nav');
+            
+            const removeActiveCarouselItem = () => {
+                const allActiveItems = carousel.querySelectorAll('.active');
+                allActiveItems.forEach(item => item.classList.remove('active'));
+            }
+
+            const changeCarouselItem = (e, idx) => {
+                const newSelected = carousel.querySelector(`[data-carousel-item-index='${idx}']`);
+                const newSelectedNav = carousel.querySelector(`[data-carousel-nav-index='${idx}']`);
+                if (newSelected) {
+                    removeActiveCarouselItem();
+                    newSelected.classList.add('active');
+                    newSelectedNav.classList.add('active');
+                }
+            };
+            carouselItems.forEach((carouselItem, idx) => {
+                const carouselNavItem = document.createElement('li');
+                carouselNavItem.setAttribute('data-carousel-nav-index',idx);
+                carouselItem.setAttribute('data-carousel-item-index',idx);
+                carouselNavItem.addEventListener('click', e => changeCarouselItem.bind(null,e,idx)());
+                carouselNav.appendChild(carouselNavItem)
+            });
+            carousel.appendChild(carouselNav);
+            if (! carousel.querySelectorAll('.active').length) {
+                changeCarouselItem(null,0);
+            }
+        }
+    })
+}
